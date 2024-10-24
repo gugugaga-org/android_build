@@ -21,7 +21,9 @@
 
 $(call inherit-product-if-exists, device/generic/goldfish/arm32-vendor.mk)
 $(call inherit-product, $(SRC_TARGET_DIR)/product/emulator.mk)
-$(call inherit-product, $(SRC_TARGET_DIR)/product/aosp_base_telephony.mk)
+ifneq ($(strip $(TARGET_PRODUCT)), RVMON7_CTRL_PCB)
+  $(call inherit-product, $(SRC_TARGET_DIR)/product/aosp_base_telephony.mk)
+endif
 $(call inherit-product, $(SRC_TARGET_DIR)/board/generic/device.mk)
 
 # Enable dynamic partition size

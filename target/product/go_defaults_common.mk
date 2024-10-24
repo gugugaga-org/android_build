@@ -38,7 +38,9 @@ PRODUCT_ART_TARGET_INCLUDE_DEBUG_BUILD := false
 
 # Do not spin up a separate process for the network stack on go devices, use an in-process APK.
 PRODUCT_PACKAGES += InProcessNetworkStack
-PRODUCT_PACKAGES += CellBroadcastAppPlatform
+ifneq ($(strip $(TARGET_PRODUCT)), RVMON7_CTRL_PCB)
+  PRODUCT_PACKAGES += CellBroadcastAppPlatform
+endif
 PRODUCT_PACKAGES += CellBroadcastServiceModulePlatform
 PRODUCT_PACKAGES += com.android.tethering.inprocess
 

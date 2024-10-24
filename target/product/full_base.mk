@@ -20,13 +20,17 @@
 # in inherited configurations.
 
 PRODUCT_PACKAGES := \
-    libfwdlockengine \
-    WAPPushManager
+    libfwdlockengine
 
 PRODUCT_PACKAGES += \
-    LiveWallpapersPicker \
     PhotoTable \
     preinstalled-packages-platform-full-base.xml
+
+ifneq ($(strip $(TARGET_PRODUCT)), RVMON7_CTRL_PCB)
+  PRODUCT_PACKAGES += \
+    WAPPushManager \
+    LiveWallpapersPicker
+endif
 
 # Bluetooth:
 #   audio.a2dp.default is a system module. Generic system image includes

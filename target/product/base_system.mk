@@ -68,7 +68,6 @@ PRODUCT_PACKAGES += \
     com.android.tethering \
     com.android.tzdata \
     com.android.wifi \
-    ContactsProvider \
     content \
     CtsShimPrebuilt \
     CtsShimPrivPrebuilt \
@@ -253,7 +252,6 @@ PRODUCT_PACKAGES += \
     sm \
     snapshotctl \
     snapuserd \
-    SoundPicker \
     storaged \
     surfaceflinger \
     svc \
@@ -279,6 +277,12 @@ PRODUCT_PACKAGES += \
     wificond \
     wifi.rc \
     wm \
+
+ifneq ($(strip $(TARGET_PRODUCT)), RVMON7_CTRL_PCB)
+  PRODUCT_PACKAGES += \
+    ContactsProvider \
+    SoundPicker
+endif
 
 # VINTF data for system image
 PRODUCT_PACKAGES += \

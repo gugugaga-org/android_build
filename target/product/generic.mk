@@ -21,7 +21,9 @@ PRODUCT_SOONG_NAMESPACES += device/generic/goldfish-opengl # for goldfish deps.
 # It includes the base Android platform.
 
 $(call inherit-product, $(SRC_TARGET_DIR)/product/generic_no_telephony.mk)
-$(call inherit-product, $(SRC_TARGET_DIR)/product/telephony.mk)
+ifneq ($(strip $(TARGET_PRODUCT)), RVMON7_CTRL_PCB)
+  $(call inherit-product, $(SRC_TARGET_DIR)/product/telephony.mk)
+endif
 
 # Overrides
 PRODUCT_BRAND := generic

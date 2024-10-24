@@ -27,4 +27,8 @@ PRODUCT_PACKAGES += \
     Settings \
     StorageManager \
     SystemUI \
-    WallpaperCropper \
+
+ifneq ($(strip $(TARGET_PRODUCT)), RVMON7_CTRL_PCB)
+  PRODUCT_PACKAGES += \
+    WallpaperCropper
+endif

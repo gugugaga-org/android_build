@@ -30,10 +30,14 @@ PRODUCT_PACKAGES += \
 
 # Applications
 PRODUCT_PACKAGES += \
-    LiveWallpapersPicker \
     PartnerBookmarksProvider \
     Stk \
     Tag \
+
+ifneq ($(strip $(TARGET_PRODUCT)), RVMON7_CTRL_PCB)
+  PRODUCT_PACKAGES += \
+    LiveWallpapersPicker
+endif
 
 # OTA support
 PRODUCT_PACKAGES += \

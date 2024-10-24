@@ -33,14 +33,10 @@ $(call inherit-product-if-exists, frameworks/webview/chromium/chromium.mk)
 
 PRODUCT_PACKAGES += \
     BasicDreams \
-    BlockedNumberProvider \
     Bluetooth \
     BluetoothMidiService \
     BookmarkProvider \
     BuiltInPrintService \
-    CalendarProvider \
-    cameraserver \
-    CameraExtensionsProxy \
     CaptivePortalLogin \
     CertInstaller \
     clatd \
@@ -53,10 +49,7 @@ PRODUCT_PACKAGES += \
     KeyChain \
     librs_jni \
     ManagedProvisioning \
-    MmsService \
     MtpService \
-    MusicFX \
-    NfcNci \
     PacProcessor \
     PrintRecommendationService \
     PrintSpooler \
@@ -65,20 +58,34 @@ PRODUCT_PACKAGES += \
     SecureElement \
     SharedStorageBackup \
     SimAppDialog \
-    Telecom \
-    TelephonyProvider \
-    TeleService \
     Traceur \
-    UserDictionaryProvider \
     VpnDialogs \
     vr \
 
+ifneq ($(strip $(TARGET_PRODUCT)), RVMON7_CTRL_PCB)
+  PRODUCT_PACKAGES += \
+    BlockedNumberProvider \
+    CalendarProvider \
+    cameraserver \
+    CameraExtensionsProxy \
+    MmsService \
+    MusicFX \
+    NfcNci \
+    Telecom \
+    TelephonyProvider \
+    TeleService \
+    UserDictionaryProvider
+endif
 
 PRODUCT_SYSTEM_SERVER_APPS += \
     FusedLocation \
     InputDevices \
     KeyChain \
-    Telecom \
+
+ifneq ($(strip $(TARGET_PRODUCT)), RVMON7_CTRL_PCB)
+  PRODUCT_SYSTEM_SERVER_APPS += \
+    Telecom
+endif
 
 PRODUCT_COPY_FILES += \
     frameworks/av/media/libeffects/data/audio_effects.conf:system/etc/audio_effects.conf
