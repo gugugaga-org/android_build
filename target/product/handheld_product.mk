@@ -26,7 +26,6 @@ PRODUCT_PACKAGES += \
     LatinIME \
     OneTimeInitializer \
     preinstalled-packages-platform-handheld-product.xml \
-    QuickSearchBox \
     SettingsIntelligence \
     frameworks-base-overlays
 
@@ -37,7 +36,8 @@ ifneq ($(strip $(TARGET_PRODUCT)), RVMON7_CTRL_PCB)
     Contacts \
     DeskClock \
     Gallery2 \
-    Music
+    Music \
+    QuickSearchBox
 endif
 
 PRODUCT_PACKAGES_DEBUG += \
