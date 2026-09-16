@@ -35,8 +35,6 @@ ifneq ($(strip $(TARGET_PRODUCT)), RVMON7_CTRL_PCB)
     Camera2 \
     Contacts \
     DeskClock \
-    Gallery2 \
-    Music \
     QuickSearchBox
 endif
 

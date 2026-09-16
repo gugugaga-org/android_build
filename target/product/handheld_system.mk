@@ -58,7 +58,6 @@ PRODUCT_PACKAGES += \
     SecureElement \
     SharedStorageBackup \
     SimAppDialog \
-    Traceur \
     VpnDialogs \
     vr \
 
